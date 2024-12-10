@@ -91,10 +91,6 @@ start_fx = pygame.mixer.Sound('Sounds/start.mp3')
 restart_fx = pygame.mixer.Sound('Sounds/restart.mp3')
 coin_fx = pygame.mixer.Sound('Sounds/coin.mp3')
 
-pygame.mixer.music.load('Sounds/mixkit-tech-house-vibes-130.mp3')
-pygame.mixer.music.play(loops=-1)
-pygame.mixer.music.set_volume(0.6)
-
 # OBJECTS *********************************************************************
 road = Road()
 nitro = Nitro(WIDTH-80, HEIGHT-80)
@@ -118,7 +114,7 @@ sound_on = True
 
 counter = 0
 counter_inc = 1
-speed = 3
+speed = 8
 dodged = 0
 coins = 0
 cfuel = 100
@@ -156,7 +152,7 @@ while running:
 
 			if event.key == pygame.K_n:
 				nitro_on = False
-				speed = 3
+				speed = 8
 				counter_inc = 1
 
 		if event.type == pygame.MOUSEBUTTONDOWN:
@@ -174,7 +170,7 @@ while running:
 			move_left = False
 			move_right = False
 			nitro_on = False
-			speed = 3
+			speed = 8
 			counter_inc = 1
 
 	if home_page:
@@ -298,13 +294,13 @@ while running:
 			win.blit(nitro_frames[nitro_counter], (x, y))
 			nitro_counter = (nitro_counter + 1) % len(nitro_frames)
 
-			speed = 10
+			speed = 15
 			if counter_inc == 1:
 				counter = 0
 				counter_inc = 5
 
 		if nitro.gas <= 0:
-			speed = 3
+			speed = 8
 			counter_inc = 1
 
 		nitro.update(nitro_on)
